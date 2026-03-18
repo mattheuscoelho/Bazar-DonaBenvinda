@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "title": "Vestido Floral Romântico",
+    "category": "vestidos",
+    "segment": "feminino",
+    "size": "M",
+    "color": "Rosa Pastel",
+    "condition": "como_novo",
+    "description": "Vestido leve, perfeito para tardes de sol. Estampa floral delicada.",
+    "price_cents": 8900,
+    "status": "available",
+    "photos": ["https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=600"],
+    "created_at": "2024-03-18T10:00:00Z"
+  },
+  {
+    "id": "2",
+    "title": "Jaqueta Jeans Oversized",
+    "category": "casacos",
+    "segment": "unissex",
+    "size": "G",
+    "color": "Azul Lavado",
+    "condition": "otimo",
+    "description": "Jaqueta robusta com pegada vintage. Muito conservada.",
+    "price_cents": 12000,
+    "status": "available",
+    "photos": ["https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&q=80&w=600"],
+    "created_at": "2024-03-17T15:00:00Z"
+  },
+  {
+    "id": "3",
+    "title": "Blusa Seda Pura",
+    "category": "blusas",
+    "segment": "feminino",
+    "size": "P",
+    "color": "Branco Off-white",
+    "condition": "como_novo",
+    "description": "Toque suave e brilho discreto. Elegância para o dia a dia.",
+    "price_cents": 15000,
+    "status": "available",
+    "photos": ["https://images.unsplash.com/photo-1598033129183-c4f50c7176c8?auto=format&fit=crop&q=80&w=600"],
+    "created_at": "2024-03-16T12:00:00Z"
+  },
+  {
+    "id": "4",
+    "title": "Bolsa Palha Praia",
+    "category": "acessórios",
+    "segment": "feminino",
+    "size": "Único",
+    "color": "Bege",
+    "condition": "bom",
+    "description": "Espaçosa e charmosa. Ideal para passeios.",
+    "price_cents": 4500,
+    "status": "available",
+    "photos": ["https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?auto=format&fit=crop&q=80&w=600"],
+    "created_at": "2024-03-15T09:00:00Z"
+  }
+]

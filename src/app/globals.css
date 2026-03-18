@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #F8F8F8;
+    --text-primary: #202020;
+    --text-secondary: #6B6B6B;
+  }
+
+  body {
+    @apply bg-background text-text-primary antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-warm-300 text-white hover:bg-warm-400 focus:ring-warm-300;
+  }
+
+  .btn-secondary {
+    @apply bg-white border border-warm-200 text-text-primary hover:bg-warm-50 focus:ring-warm-200;
+  }
+
+  .admin-btn-large {
+    @apply text-xl px-10 py-5 font-bold rounded-2xl shadow-sm active:scale-95;
+  }
+
+  /* Foco visível para acessibilidade */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-cold-300 ring-offset-2;
+  }
+}
