@@ -1,7 +1,11 @@
-import mockItems from './mock.json';
-import { createServerClient } from '../supabase/server';
+// src/lib/data/items.ts
+import mock from "./mock.json";
 
-export interface Item {
+export const USE_MOCK =
+  (process.env.NEXT_PUBLIC_USE_MOCK_DATA ?? process.env.USE_MOCK_DATA ?? "true") === "true";
+
+// Tipos básicos (ajuste conforme seu projeto)
+export type Item = {
   id: string;
   title: string;
   category: string;
@@ -9,77 +13,23 @@ export interface Item {
   size: string;
   color: string;
   condition: string;
-  description: string;
-  measurements?: Record<string, any>;
-  price_cents: number | null;
-  status: 'available' | 'unavailable';
+  description?: string;
+  status: "available" | "unavailable";
   photos: string[];
-  created_at: string;
-}
+  created_at?: string;
+};
 
-const USE_MOCK = process.env.USE_MOCK_DATA === 'true';
+async function listMockAvailableItems(): Promise<Item[]> {
+  // aqui depende do formato do seu mock.json
+  const items = (mock as any).items ?? mock;
+  return items.filter((i: Item) => i.status === "available");
+}
 
 export async function listAvailableItems(): Promise<Item[]> {
-  if (USE_MOCK) {
-    return (mockItems as Item[]).filter(i => i.status === 'available');
-  }
+  if (USE_MOCK) return listMockAvailableItems();
 
-  const supabase = createServerClient();
-  const { data, error } = await supabase
-    .from('items')
-    .select('*')
-    .eq('status', 'available')
-    .order('created_at', { ascending: false });
-
-  if (error) throw error;
-  return data as Item[];
+  // Import dinâmico: só carrega supabase quando realmente precisar
+  const { listSupabaseAvailableItems } = await import("./items.supabase");
+  return listSupabaseAvailableItems();
 }
-
-export async function getItemById(id: string): Promise<Item | null> {
-  if (USE_MOCK) {
-    return (mockItems as Item[]).find(i => i.id === id) || null;
-  }
-
-  const supabase = createServerClient();
-  const { data, error } = await supabase
-    .from('items')
-    .select('*')
-    .eq('id', id)
-    .single();
-
-  if (error) return null;
-  return data as Item;
-}
-
-export async function listByCategory(category: string): Promise<Item[]> {
-  if (USE_MOCK) {
-    return (mockItems as Item[]).filter(i => i.category === category && i.status === 'available');
-  }
-
-  const supabase = createServerClient();
-  const { data, error } = await supabase
-    .from('items')
-    .select('*')
-    .eq('category', category)
-    .eq('status', 'available')
-    .order('created_at', { ascending: false });
-
-  if (error) throw error;
-  return data as Item[];
-}
-
-// Admin functions (Simplified for MVP, would use real auth in production)
-export async function adminListAll(): Promise<Item[]> {
-  if (USE_MOCK) {
-    return mockItems as Item[];
-  }
-
-  const supabase = createServerClient();
-  const { data, error } = await supabase
-    .from('items')
-    .select('*')
-    .order('created_at', { ascending: false });
-
-  if (error) throw error;
-  return data as Item[];
-}
+``
