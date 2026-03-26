@@ -24,7 +24,7 @@ export default function AdminLogin() {
     });
 
     if (error) {
-      setError("Credenciais inválidas. Verifique seu e-mail e senha.");
+      setError("E-mail ou senha incorretos");
       setLoading(false);
     } else {
       router.push("/admin");
