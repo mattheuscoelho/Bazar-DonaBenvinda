@@ -14,7 +14,7 @@ export default function Header() {
           <div className="w-10 h-10 bg-warm-200 rounded-full flex items-center justify-center group-hover:bg-warm-300 transition-colors">
             <Heart className="w-5 h-5 text-white fill-white" />
           </div>
-          <span className="text-xl font-semibold tracking-tight">DonaBenvinda</span>
+          <span className="text-xl font-semibold tracking-tight">Benvinda Poesia</span>
         </Link>
 
         {/* Desktop Nav */}

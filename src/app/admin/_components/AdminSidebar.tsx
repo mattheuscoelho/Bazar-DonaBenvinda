@@ -11,6 +11,7 @@ export default function AdminSidebar() {
   const links = [
     { href: "/admin", label: "Dashboard" },
     { href: "/admin/novo", label: "Adicionar Peça" },
+    { href: "/admin/sobre", label: "Nossa História" },
   ];
 
   const handleLogout = async () => {

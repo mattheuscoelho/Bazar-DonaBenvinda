@@ -18,8 +18,9 @@ export default async function CategoryPage({ params }: PageProps) {
   const items = await listAvailableItems();
 
   const filtered = items.filter((item: any) => {
-    const cat = String(item.category ?? "").toLowerCase();
-    return cat === categorySlug;
+    const segment = String(item.segment ?? "").toLowerCase();
+    const category = String(item.category ?? "").toLowerCase();
+    return segment === categorySlug || category === categorySlug;
   });
 
   return (

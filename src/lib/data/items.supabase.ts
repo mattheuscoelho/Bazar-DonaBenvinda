@@ -2,7 +2,7 @@
 import { createServerClient } from "../supabase/server";
 
 export async function listSupabaseAvailableItems() {
-  const supabase = createServerClient();
+  const supabase = await createServerClient();
 
   const { data, error } = await supabase
     .from("items")

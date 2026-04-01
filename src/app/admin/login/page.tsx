@@ -40,7 +40,7 @@ export default function AdminLogin() {
             <Lock className="w-8 h-8 text-pink-600" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900">Acesso Restrito</h1>
-          <p className="text-gray-600 mt-2">Painel de Gestão - Bazar Dona Benvinda</p>
+          <p className="text-gray-600 mt-2">Painel de Gestão - Brechó Benvinda Poesia e Cia.</p>
         </div>
         
         <form onSubmit={handleLogin} className="p-8 space-y-6">
